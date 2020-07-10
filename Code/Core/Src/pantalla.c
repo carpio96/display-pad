@@ -1,3 +1,4 @@
+#include "lvgl.h"
 #include "pantalla.h"
 
 void Pantalla_init()
@@ -62,14 +63,9 @@ void Pantalla_init()
 
     HAL_Delay(1);
 
-    LCD_Fill(0, 0, 800, 480, 0xFFFF); // netejem la pantalla
+    //LCD_Fill(0, 0, 800, 480, 0xFFFF); // netejem la pantalla
     LCD_SetBacklight(255);
     LCD_Write(COMMAND, CMD_ON_DISPLAY); //display on
-
-    //  rrrrr gggggg bbbbb
-    //0b0000000000011111
-    LCD_Fill(0, 0, 10, 10, 0x7E0);     // quadrat verd ( test )
-    LCD_Fill(780, 460, 10, 10, 0x01F); // quadrat blau ( test )
 }
 
 void LCD_Write(uint8_t D_C, uint16_t dada)
@@ -106,7 +102,6 @@ void LCD_Fill(uint16_t start_x, uint16_t start_y, uint16_t ample, uint16_t alt, 
 
     for (uint32_t i = 0; i < (ample * alt); i++)
     {
-        //pintar_pixel(color);
         LCD_Write(DATA, color);
     }
 }
@@ -118,7 +113,6 @@ void LCD_PintarImatge(uint16_t start_x, uint16_t start_y, uint16_t tamany_x, uin
 
     for (uint32_t i = 0; i < (tamany_x * tamany_y); i++)
     {
-        //pintar_pixel(color[i]);
         LCD_Write(DATA, color[i]);
     }
 }
