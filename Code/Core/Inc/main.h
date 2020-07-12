@@ -83,8 +83,8 @@ void Error_Handler(void);
 #define CTP_NRST_GPIO_Port GPIOA
 #define CTP_NINT_Pin GPIO_PIN_4
 #define CTP_NINT_GPIO_Port GPIOC
-#define CTP_NWAKE_Pin GPIO_PIN_5
-#define CTP_NWAKE_GPIO_Port GPIOC
+#define CTP_WAKE_Pin GPIO_PIN_5
+#define CTP_WAKE_GPIO_Port GPIOC
 #define CTP_SCL_Pin GPIO_PIN_10
 #define CTP_SCL_GPIO_Port GPIOB
 #define LCD_D5_Pin GPIO_PIN_12
