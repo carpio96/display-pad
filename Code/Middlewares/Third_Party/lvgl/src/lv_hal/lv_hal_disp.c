@@ -63,7 +63,7 @@ void lv_disp_drv_init(lv_disp_drv_t *driver)
     driver->hor_res = LV_HOR_RES_MAX;
     driver->ver_res = LV_VER_RES_MAX;
     driver->buffer = &buffers_pantalla;
-    driver->rotated = 1;
+    driver->rotated = 0;
     driver->color_chroma_key = LV_COLOR_TRANSP;
     driver->dpi = LV_DPI;
 

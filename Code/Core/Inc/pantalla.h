@@ -44,7 +44,11 @@
 	HAL_GPIO_WritePin(LCD_D14_GPIO_Port, LCD_D14_Pin, (0x01 & (_N >> 14))); \
 	HAL_GPIO_WritePin(LCD_D15_GPIO_Port, LCD_D15_Pin, (0x01 & (_N >> 15)))
 
+// va aqui para que lv_hal_disp.c lo pueda ver
+static lv_disp_buf_t buffers_pantalla;
+
 void Pantalla_init();
+void init_data_lvgl();
 void LCD_Write(uint8_t D_C, uint16_t dada);
 void LCD_SetBacklight(uint8_t intensity);
 void LCD_Fill(uint16_t start_x, uint16_t start_y, uint16_t ample, uint16_t alt, uint16_t color);

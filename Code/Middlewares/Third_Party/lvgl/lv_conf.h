@@ -48,12 +48,12 @@
 
 /* Default display refresh period.
  * Can be changed in the display driver (`lv_disp_drv_t`).*/
-#define LV_DISP_DEF_REFR_PERIOD      30      /*[ms]*/
+#define LV_DISP_DEF_REFR_PERIOD 30      /*[ms]*/
 
 /* Dot Per Inch: used to initialize default sizes.
  * E.g. a button with width = LV_DPI / 2 -> half inch wide
  * (Not so important, you can adjust it to modify default sizes and spaces)*/
-#define LV_DPI              200     /*[px]*/
+#define LV_DPI              150     /*[px]*/
 
 /* The the real width of the display changes some default values:
  * default object sizes, layout of examples, etc.
@@ -142,7 +142,7 @@ typedef uint16_t lv_coord_t;
  *==================*/
 
 /*1: Enable the Animations */
-#define LV_USE_ANIMATION        1
+//#define LV_USE_ANIMATION        1
 #if LV_USE_ANIMATION
 
 /*Declare the type of the user data of animations (can be e.g. `void *`, `int`, `struct`)*/
@@ -178,7 +178,8 @@ typedef void * lv_group_user_data_t;
 /* 1: Enable GPU interface*/
 #define LV_USE_GPU              0   /*Only enables `gpu_fill_cb` and `gpu_blend_cb` in the disp. drv- */
 #define LV_USE_GPU_STM32_DMA2D  0
-/*If enabling LV_USE_GPU_STM32_DMA2D, LV_GPU_DMA2D_CMSIS_INCLUDE must be defined to include path of CMSIS header of target processor
+/*If enabling LV_USE_GPU_STM32_DMA2D, LV_GPU_DMA2D_CMSIS_INCLUDE must be defined to include path
+of CMSIS header of target processor
 e.g. "stm32f769xx.h" or "stm32f429xx.h" */
 #define LV_GPU_DMA2D_CMSIS_INCLUDE
 
@@ -193,7 +194,7 @@ typedef void * lv_fs_drv_user_data_t;
 #define LV_USE_USER_DATA        0
 
 /*1: Show CPU usage and FPS count in the right bottom corner*/
-#define LV_USE_PERF_MONITOR     0
+#define LV_USE_PERF_MONITOR     1 // temporal
 
 /*1: Use the functions and types from the older API if possible */
 #define LV_USE_API_EXTENSION_V6  1
@@ -566,7 +567,7 @@ typedef void * lv_obj_user_data_t;
 #define LV_USE_DROPDOWN    1
 #if LV_USE_DROPDOWN != 0
 /*Open and close default animation time [ms] (0: no animation)*/
-#  define LV_DROPDOWN_DEF_ANIM_TIME     200
+#  define LV_DROPDOWN_DEF_ANIM_TIME   200
 #endif
 
 /*Gauge (dependencies:lv_bar, lv_linemeter)*/
@@ -655,7 +656,7 @@ typedef void * lv_obj_user_data_t;
 #define LV_USE_ROLLER    1
 #if LV_USE_ROLLER != 0
 /*Focus animation time [ms] (0: no animation)*/
-#  define LV_ROLLER_DEF_ANIM_TIME     200
+#  define LV_ROLLER_DEF_ANIM_TIME    200
 
 /*Number of extra "pages" when the roller is infinite*/
 #  define LV_ROLLER_INF_PAGES         7
@@ -687,7 +688,7 @@ typedef void * lv_obj_user_data_t;
 #define LV_USE_TABVIEW      1
 #  if LV_USE_TABVIEW != 0
 /*Time of slide animation [ms] (0: no animation)*/
-#  define LV_TABVIEW_DEF_ANIM_TIME    300
+#  define LV_TABVIEW_DEF_ANIM_TIME   300
 #endif
 
 /*Tileview (dependencies: lv_page) */

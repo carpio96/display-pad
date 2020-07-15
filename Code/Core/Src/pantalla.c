@@ -1,6 +1,9 @@
 #include "lvgl.h"
 #include "pantalla.h"
 
+static lv_disp_drv_t driver_pantalla;
+lv_color_t buffer_1[LV_HOR_RES_MAX * 10];
+
 void Pantalla_init()
 {
     LCD_READ_OFF; // no leeremos nada, lo dejamos apagado
@@ -64,8 +67,52 @@ void Pantalla_init()
     HAL_Delay(1);
 
     //LCD_Fill(0, 0, 800, 480, 0xFFFF); // netejem la pantalla
-    LCD_SetBacklight(255);
+    //LCD_SetBacklight(255);
+    LCD_SetBacklight(50);
     LCD_Write(COMMAND, CMD_ON_DISPLAY); //display on
+
+    init_data_lvgl();
+}
+
+// nota:
+// están habiendo pérdidas de memoria en esta función
+// los structs que usa LVGL parecen ser demasiado masivos y si
+// intentas pasar el struct completo por la función lv_disp_drv_init(),
+// parece crashear y deja el sistema colgado. Por este motivo, se ha 
+// copiado la función lv_disp_drv_init() de lv_hal_disp.c
+// directamente aquí
+void init_data_lvgl()
+{
+    lv_disp_buf_init(&buffers_pantalla, buffer_1, NULL, LV_HOR_RES_MAX * 10);
+
+    driver_pantalla.flush_cb = my_disp_flush;
+    driver_pantalla.hor_res = LV_HOR_RES_MAX;
+    driver_pantalla.ver_res = LV_VER_RES_MAX;
+    driver_pantalla.buffer = &buffers_pantalla;
+    driver_pantalla.rotated = 0;
+    driver_pantalla.color_chroma_key = LV_COLOR_TRANSP;
+    driver_pantalla.dpi = LV_DPI;
+
+#if LV_ANTIALIAS
+    driver_pantalla.antialiasing = true;
+#endif
+
+#if LV_COLOR_SCREEN_TRANSP
+    driver_pantalla.screen_transp = 1;
+#endif
+
+#if LV_USE_GPU
+    driver_pantalla.gpu_blend_cb = NULL;
+    driver_pantalla.gpu_fill_cb = NULL;
+#endif
+
+#if LV_USE_USER_DATA
+    driver_pantalla.user_data = NULL;
+#endif
+
+    driver_pantalla.set_px_cb = NULL;
+
+    lv_disp_drv_register(&driver_pantalla);
 }
 
 void LCD_Write(uint8_t D_C, uint16_t dada)
