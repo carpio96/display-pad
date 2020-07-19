@@ -1,6 +1,6 @@
 # Display-pad:
 
-[id]: https://github.com/victorgg1993/display-pad/tree/master/Img/modulo.jpg  "Módulo display"
+![Display](https://raw.githubusercontent.com/victorgg1993/display-pad/master/Img/modulo.jpg)
 
 Implementación módulo con pantalla táctil que envía texto ( emulando un teclado USB ) cuando la contraseña de acceso es correcta.
 
