@@ -61,6 +61,8 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define led_Pin GPIO_PIN_0
 #define led_GPIO_Port GPIOC
+#define LCD_DC_Pin GPIO_PIN_1
+#define LCD_DC_GPIO_Port GPIOC
 #define LCD_RESET_Pin GPIO_PIN_2
 #define LCD_RESET_GPIO_Port GPIOC
 #define SDIO_CARD_DET_Pin GPIO_PIN_3
@@ -103,8 +105,6 @@ void Error_Handler(void);
 #define LCD_WRITE_GPIO_Port GPIOC
 #define LCD_READ_Pin GPIO_PIN_8
 #define LCD_READ_GPIO_Port GPIOA
-#define LCD_DC_Pin GPIO_PIN_9
-#define LCD_DC_GPIO_Port GPIOA
 #define LCD_NCS_Pin GPIO_PIN_10
 #define LCD_NCS_GPIO_Port GPIOA
 #define TMS_Pin GPIO_PIN_13

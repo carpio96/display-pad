@@ -1,5 +1,6 @@
 #include "lvgl.h"
 #include "panel_login.h"
+#include "usb.h"
 
 void init_panel_login(void)
 {
@@ -228,6 +229,19 @@ void handler_boton_aceptar(lv_obj_t *obj, lv_event_t event)
 {
     if (event == LV_EVENT_CLICKED)
     {
+        keyboard_write(TECLA_H);
+        keyboard_write(TECLA_O);
+        keyboard_write(TECLA_L);
+        keyboard_write(TECLA_A);
+        keyboard_write(TECLA_SPACE);
+        keyboard_write(TECLA_M);
+        keyboard_write(TECLA_U);
+        keyboard_write(TECLA_N);
+        keyboard_write(TECLA_D);
+        keyboard_write(TECLA_O);
+        keyboard_write(TECLA_ENTER);
+
+        HAL_Delay(30);
         // mirar si el password coincide
     }
 }
