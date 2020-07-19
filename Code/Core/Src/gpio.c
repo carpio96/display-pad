@@ -50,22 +50,22 @@ void MX_GPIO_Init(void)
   __HAL_RCC_GPIOD_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, led_Pin|LCD_RESET_Pin|CTP_WAKE_Pin|LCD_D1_Pin 
-                          |LCD_D0_Pin|LCD_WRITE_Pin|LCD_D7_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC, led_Pin|LCD_DC_Pin|LCD_RESET_Pin|CTP_WAKE_Pin 
+                          |LCD_D1_Pin|LCD_D0_Pin|LCD_WRITE_Pin|LCD_D7_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, LCD_D15_Pin|LCD_D14_Pin|LCD_D13_Pin|LCD_D12_Pin 
-                          |LCD_D11_Pin|CTP_NRST_Pin|LCD_READ_Pin|LCD_DC_Pin 
-                          |LCD_NCS_Pin|LCD_D6_Pin, GPIO_PIN_RESET);
+                          |LCD_D11_Pin|CTP_NRST_Pin|LCD_READ_Pin|LCD_NCS_Pin 
+                          |LCD_D6_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, LCD_D5_Pin|LCD_D4_Pin|LCD_D3_Pin|LCD_D2_Pin 
                           |LCD_D8_Pin|LCD_D9_Pin|LCD_D10_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : PCPin PCPin PCPin PCPin 
-                           PCPin PCPin PCPin */
-  GPIO_InitStruct.Pin = led_Pin|LCD_RESET_Pin|CTP_WAKE_Pin|LCD_D1_Pin 
-                          |LCD_D0_Pin|LCD_WRITE_Pin|LCD_D7_Pin;
+                           PCPin PCPin PCPin PCPin */
+  GPIO_InitStruct.Pin = led_Pin|LCD_DC_Pin|LCD_RESET_Pin|CTP_WAKE_Pin 
+                          |LCD_D1_Pin|LCD_D0_Pin|LCD_WRITE_Pin|LCD_D7_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -79,10 +79,10 @@ void MX_GPIO_Init(void)
 
   /*Configure GPIO pins : PAPin PAPin PAPin PAPin 
                            PAPin PAPin PAPin PAPin 
-                           PAPin PAPin */
+                           PAPin */
   GPIO_InitStruct.Pin = LCD_D15_Pin|LCD_D14_Pin|LCD_D13_Pin|LCD_D12_Pin 
-                          |LCD_D11_Pin|CTP_NRST_Pin|LCD_READ_Pin|LCD_DC_Pin 
-                          |LCD_NCS_Pin|LCD_D6_Pin;
+                          |LCD_D11_Pin|CTP_NRST_Pin|LCD_READ_Pin|LCD_NCS_Pin 
+                          |LCD_D6_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;

@@ -25,7 +25,7 @@
 #include "sdio.h"
 #include "tim.h"
 #include "usart.h"
-#include "usb_otg.h"
+#include "usb_device.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -34,6 +34,7 @@
 #include "pantalla.h"
 #include "tactil.h"
 #include "panel_login.h"
+#include "usb.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -97,17 +98,16 @@ int main(void)
   MX_SDIO_SD_Init();
   MX_TIM4_Init();
   MX_USART2_UART_Init();
-  MX_USB_OTG_FS_PCD_Init();
   MX_I2C2_Init();
   MX_FATFS_Init();
   MX_TIM2_Init();
+  MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
+  usb_init();
   HAL_TIM_Base_Start_IT(&htim2);
-
   lv_init();
   Pantalla_init();
   tactil_init();
-
   init_panel_login();
 
   /* USER CODE END 2 */

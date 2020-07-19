@@ -20,27 +20,27 @@
 #ifndef __usb_otg_H
 #define __usb_otg_H
 #ifdef __cplusplus
- extern "C" {
+extern "C"
+{
 #endif
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 
-/* USER CODE BEGIN Includes */
+  /* USER CODE BEGIN Includes */
 
-/* USER CODE END Includes */
+  /* USER CODE END Includes */
 
-extern PCD_HandleTypeDef hpcd_USB_OTG_FS;
+  extern PCD_HandleTypeDef hpcd_USB_OTG_FS;
+  /* USER CODE BEGIN Private defines */
 
-/* USER CODE BEGIN Private defines */
+  /* USER CODE END Private defines */
 
-/* USER CODE END Private defines */
+  void MX_USB_OTG_FS_PCD_Init(void);
 
-void MX_USB_OTG_FS_PCD_Init(void);
+  /* USER CODE BEGIN Prototypes */
 
-/* USER CODE BEGIN Prototypes */
-
-/* USER CODE END Prototypes */
+  /* USER CODE END Prototypes */
 
 #ifdef __cplusplus
 }
