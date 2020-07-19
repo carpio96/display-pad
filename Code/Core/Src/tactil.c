@@ -48,21 +48,3 @@ void tactil_get_coordenades(void)
     }
 }
 
-// capa abstracción LVGL
-bool my_touchpad_read(lv_indev_drv_t *indev_driver, lv_indev_data_t *data)
-{
-    if (READ_PIN_INT() == 0)
-    {
-        HAL_GPIO_WritePin(led_GPIO_Port, led_Pin, 1);
-        tactil_get_coordenades();
-        data->point.x = array_dits[DIT_1][EJE_X];
-        data->point.y = array_dits[DIT_1][EJE_Y];
-        data->state = LV_INDEV_STATE_PR; // botón apretado
-    }
-    else
-    {
-        data->state = LV_INDEV_STATE_REL; // botón suelto
-    }
-
-    return false; /*Return `false` because we are not buffering and no more data to read*/
-}
