@@ -32,6 +32,13 @@ Compilar:
 make all
 ```
 
+o también:
+
+```
+make
+```
+
+
 Limpiar el proyecto:
 
 ```
