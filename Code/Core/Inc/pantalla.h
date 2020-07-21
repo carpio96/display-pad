@@ -52,7 +52,7 @@ void init_data_lvgl();
 void LCD_Write(uint8_t D_C, uint16_t dada);
 void LCD_SetBacklight(uint8_t intensity);
 void LCD_Fill(uint16_t start_x, uint16_t start_y, uint16_t ample, uint16_t alt, uint16_t color);
-void LCD_PintarImatge(uint16_t start_x, uint16_t start_y, uint16_t tamany_x, uint16_t tamany_y, uint16_t *color);
-void LCD_donarTamany(uint16_t start_x, uint16_t start_y, uint16_t ample, uint16_t alt);
+extern inline void LCD_PintarImatge(uint16_t start_x, uint16_t start_y, uint16_t tamany_x, uint16_t tamany_y, uint16_t *color);
+extern inline void LCD_donarTamany(uint16_t start_x, uint16_t start_y, uint16_t ample, uint16_t alt);
 
 #endif

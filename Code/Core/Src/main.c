@@ -66,6 +66,8 @@ void SystemClock_Config(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 volatile uint16_t cnt = 0; // contador temporal, usado para ver si el LED se queda fijo ( si lo hace, el sistema se colgó )
+volatile uint16_t contador_lvgl = 0;
+//volatile uint16_t contador_tactil_lvgl = 0;
 /* USER CODE END 0 */
 
 /**
@@ -102,9 +104,11 @@ int main(void)
   MX_FATFS_Init();
   MX_TIM2_Init();
   MX_USB_DEVICE_Init();
+  MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
   usb_init();
   HAL_TIM_Base_Start_IT(&htim2);
+  //HAL_TIM_Base_Start_IT(&htim3);
   lv_init();
   Pantalla_init();
   tactil_init();
@@ -117,8 +121,8 @@ int main(void)
 
   while (1)
   {
-    HAL_Delay(5);
     lv_task_handler();
+    HAL_Delay(20);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -209,8 +213,24 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
       cnt = 0;
     }
 
-    lv_tick_inc(1);
+    contador_lvgl++;
+    if (contador_lvgl >= 3)
+    {
+      lv_tick_inc(3);
+      contador_lvgl = 0;
+    }
   }
+
+  //if (htim->Instance == TIM3)
+  //{
+  //contador_tactil_lvgl++;
+  //if (contador_tactil_lvgl >= 20)
+  //{
+  //lv_task_handler();
+  //contador_tactil_lvgl = 0;
+  //}
+  //}
+
   /* USER CODE END Callback 1 */
 }
 

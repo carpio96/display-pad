@@ -47,7 +47,7 @@
 #define REG_TOUCH4_XH (0x15)
 #define REG_TOUCH5_XH (0x1B)
 
-//extern uint16_t array_touchScreen_dits[5][2];
+uint16_t array_dits[NOMBRE_MAXIM_TOUCH][2];
 
 void tactil_init(void);
 void init_data_tactil_lvgl(void);

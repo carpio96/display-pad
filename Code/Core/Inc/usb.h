@@ -26,8 +26,18 @@
 #define USB_HID_MODIFIER_RIGHT_ALT 0x40
 #define USB_HID_MODIFIER_RIGHT_GUI 0x80
 
+#define USB_HID_KEY_CAPSLOCK 0x39
 
-#define TECLA_3 91
+#define TECLA_0 39
+#define TECLA_1 30
+#define TECLA_2 31
+#define TECLA_3 32
+#define TECLA_4 33
+#define TECLA_5 34
+#define TECLA_6 35
+#define TECLA_7 36
+#define TECLA_8 37
+#define TECLA_9 38
 
 #define TECLA_A 4
 #define TECLA_B 5
@@ -59,17 +69,26 @@
 #define TECLA_SPACE 0x2c
 #define TECLA_ENTER 0x28
 
+// buffer del paquete usb a enviar
 #define KB_ID 0
 #define KB_MODIFIERS 1
 #define KB_KEY1 2
 #define KB_KEY2 3
 #define KB_KEY3 4
 
+// macros
+#define LETRA_MINUSCULA(_N) (_N - 93)  // en usb, la 'a' vale 4, en ascii vale 97. Char ascii - 93 = char usb
+#define LETRA_MAYUSCULA(_N) (_N - 61)  // en usb, la 'a' vale 4, en ascii vale 65. Char ascii - 61 = char usb
+#define NUMERO(_N) (_N - 19)  // sirve para todos los números menos el 0, porque en usb va del 1~9,0 y ascii del 0~9.
 
-uint8_t buffer[9]; // 9 = nº màxim de dades
+#define MINUSCULAS 1
+#define MAYUSCULAS 2
+#define NUMEROS 3
 
 void usb_init();
-void keyboard_write(uint8_t char1);
+void keyboard_write_char(char caracter);
+void keyboard_print(char *texto);
 
+uint8_t mirar_simbolo(char simbolo);
 
 #endif
