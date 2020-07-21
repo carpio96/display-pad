@@ -153,7 +153,7 @@ void LCD_Fill(uint16_t start_x, uint16_t start_y, uint16_t ample, uint16_t alt, 
     }
 }
 
-void LCD_PintarImatge(uint16_t start_x, uint16_t start_y, uint16_t tamany_x, uint16_t tamany_y, uint16_t *color)
+inline void LCD_PintarImatge(uint16_t start_x, uint16_t start_y, uint16_t tamany_x, uint16_t tamany_y, uint16_t *color)
 {
     LCD_donarTamany(start_x, start_y, tamany_x, tamany_y);
     LCD_Write(COMMAND, CMD_WR_MEMSTART);
@@ -164,7 +164,7 @@ void LCD_PintarImatge(uint16_t start_x, uint16_t start_y, uint16_t tamany_x, uin
     }
 }
 
-void LCD_donarTamany(uint16_t start_x, uint16_t start_y, uint16_t ample, uint16_t alt)
+inline void LCD_donarTamany(uint16_t start_x, uint16_t start_y, uint16_t ample, uint16_t alt)
 {
     ample = ((start_x + ample) - 1);
     alt = ((start_y + alt) - 1);
